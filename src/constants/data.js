@@ -40,3 +40,21 @@ export const socialLinks = [
     url: 'https://twitter.com/Manikandan11631',
   },
 ];
+
+export const data = [
+  {
+    id: 1,
+    title: 'The Colorful World of Synesthesia',
+    desc: 'A brief introduction to synesthesia, a neurological condition in which the stimulation of one sensory or cognitive pathway leads to involuntary experiences in a different pathway',
+  },
+  {
+    id: 2,
+    title: 'The Bizarre Sleeping Habits of Animals',
+    desc: 'Learn about the fascinating ways animals sleep',
+  },
+  {
+    id: 3,
+    title: `The Surprising Origins of the Potato Chip',
+    desc: 'Have you ever wondered how the beloved potato chip came into existence? It's a snack that has become a staple in households worldwide, but its origins are quite fascinating`,
+  },
+];

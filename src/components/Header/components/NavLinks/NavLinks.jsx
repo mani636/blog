@@ -9,9 +9,7 @@ const NavLinks = () => {
       <ul className='nav-link-container'>
         {navLinks.map(({ id, link, url }) => (
           <li key={id} className='nav-link'>
-            <NavLink to={url} className='active'>
-              {link}
-            </NavLink>
+            <NavLink to={url}>{link}</NavLink>
           </li>
         ))}
       </ul>

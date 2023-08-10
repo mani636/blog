@@ -24,6 +24,6 @@
   color: #dbe4e8;
 }
 
-.nav-link > a:active {
+.nav-link > a:focus {
   border-bottom: 4px solid gray;
 }
