@@ -19,6 +19,11 @@
   border-top-right-radius: 10px;
 }
 
+.blog-info-container > a {
+  text-decoration: none;
+  color: white;
+}
+
 .blog-title {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;

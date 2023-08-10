@@ -1,7 +1,8 @@
 import React from 'react';
+import './Create.css';
 
 const Create = () => {
-  return <div>Create</div>;
+  return <div className='create-container'></div>;
 };
 
 export default Create;

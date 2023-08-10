@@ -21,6 +21,11 @@ export const navLinks = [
     link: 'Login',
     url: '/login',
   },
+  {
+    id: 5,
+    link: 'Signup',
+    url: '/signup',
+  },
 ];
 
 export const socialLinks = [
@@ -54,7 +59,7 @@ export const data = [
   },
   {
     id: 3,
-    title: `The Surprising Origins of the Potato Chip',
-    desc: 'Have you ever wondered how the beloved potato chip came into existence? It's a snack that has become a staple in households worldwide, but its origins are quite fascinating`,
+    title: 'The Surprising Origins of the Potato Chip',
+    desc: `Have you ever wondered how the beloved potato chip came into existence? It's a snack that has become a staple in households worldwide, but its origins are quite fascinating`,
   },
 ];
