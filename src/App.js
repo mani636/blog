@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import Header from './components/Header/Header';
 import { Route, Routes } from 'react-router-dom';
-import { Home, About, Create, Login, SignUp } from './Pages';
+import { Home, Create, Login, SignUp } from './Pages';
 
 const App = () => {
   return (
@@ -9,7 +9,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/about' element={<About />} />
+
         <Route path='/create' element={<Create />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
