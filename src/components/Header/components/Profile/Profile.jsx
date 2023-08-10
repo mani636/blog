@@ -1,6 +1,6 @@
 import './Profile.css';
 import image from '../../../../asset/WhatsApp Image 2023-08-09 at 7.14.23 PM.jpeg';
-import { FaSearch } from 'react-icons/fa';
+// import { FaSearch } from 'react-icons/fa';
 import { FiMoon } from 'react-icons/fi';
 
 const Profile = () => {
@@ -12,12 +12,12 @@ const Profile = () => {
         </div>
         <h3>Manikandan Blog</h3>
       </div>
-      <div className='search-container'>
+      {/* <div className='search-container'>
         <input type='text' className='search-box' placeholder='Search Blogs' />
         <button className='search-btn'>
           <FaSearch />
         </button>
-      </div>
+      </div> */}
       <div className='moon-icon'>
         <FiMoon />
       </div>

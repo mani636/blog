@@ -36,3 +36,15 @@
   color: rgba(166, 166, 230, 0.9);
   padding: 0.25rem 0.75rem;
 }
+
+@media (max-width: 798px) {
+  .blog {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cart-container {
+    width: 90vw;
+    margin: 0 auto;
+  }
+}
