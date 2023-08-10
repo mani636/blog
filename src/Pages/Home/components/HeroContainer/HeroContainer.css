@@ -8,6 +8,7 @@
   height: 400px;
   width: 350px;
   border-radius: 10px;
+  border: 2px solid rgb(30 41 59);
 }
 
 .blog-img-container {
