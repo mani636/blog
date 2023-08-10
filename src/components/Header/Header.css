@@ -1,0 +1,13 @@
+nav {
+  width: 90vw;
+  height: 200px;
+  margin: 0 auto;
+  background-color: rgba(15, 23, 42, 1);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0px 0px 8px 1px rgb(63, 82, 110);
+  box-shadow: 0px 0px 8px 1px rgb(93, 113, 118);
+  color: #fff;
+  position: sticky;
+  top: 0;
+}
