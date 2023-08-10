@@ -10,7 +10,7 @@ const Profile = () => {
       <div className='user-image-container'>
         <img src={profile} alt='profile' />
       </div>
-      <p>Manikandan Raj</p>
+      <p className='name'>Manikandan Raj</p>
       <p>Learning new things everyday</p>
       <div className='user-follow-btn-container'>
         <span className='user-icon'>
