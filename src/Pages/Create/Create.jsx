@@ -12,13 +12,7 @@ const Create = () => {
           placeholder='Enter your blog title'
         />
       </div>
-      <div className='blog-content-container'>
-        <input
-          type='text'
-          className='blog'
-          placeholder='Enter your description'
-        />
-      </div>
+
       <div className='content'>
         <textarea
           type='text'
