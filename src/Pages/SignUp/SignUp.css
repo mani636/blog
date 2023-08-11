@@ -69,3 +69,13 @@
   letter-spacing: 2px;
   cursor: pointer;
 }
+
+.signup-container > p {
+  color: #e2f3f5;
+  text-align: center;
+}
+
+.signup-container > p > a {
+  color: rgba(3, 105, 161, 1);
+  font-size: 18px;
+}

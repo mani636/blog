@@ -14,11 +14,6 @@ export const navLinks = [
   {
     id: 3,
     link: 'Login',
-    url: '/login',
-  },
-  {
-    id: 4,
-    link: 'Signup',
     url: '/signup',
   },
 ];
