@@ -2,7 +2,8 @@ import React from 'react';
 import './SignUp.css';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
-import { auth } from '../../firebase';
+import { auth, provider } from '../../firebase';
+import { signInWithPopup } from 'firebase/auth';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
@@ -23,6 +24,10 @@ const SignUp = () => {
       .catch((err) => {
         console.log('An error occured', err.message);
       });
+  };
+
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider).then((result) => {});
   };
 
   return (
@@ -47,6 +52,11 @@ const SignUp = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+      </div>
+      <div className='signIn-google-btn'>
+        <button type='button' onClick={() => {}}>
+          SIGN IN WITH GOOGLE
+        </button>
       </div>
       <div className='signup-btn'>
         <button type='button' onClick={onSubmit}>
