@@ -53,14 +53,15 @@ const SignUp = () => {
           required
         />
       </div>
-      <div className='signIn-google-btn'>
-        <button type='button' onClick={() => {}}>
-          SIGN IN WITH GOOGLE
-        </button>
-      </div>
       <div className='signup-btn'>
         <button type='button' onClick={onSubmit}>
           SIGN UP
+        </button>
+      </div>
+      <h3>or</h3>
+      <div className='signIn-google-btn'>
+        <button type='button' onClick={() => {}}>
+          SIGN IN WITH GOOGLE
         </button>
       </div>
       <p>

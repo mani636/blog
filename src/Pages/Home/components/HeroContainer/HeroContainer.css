@@ -5,19 +5,18 @@
 
 .cart-container {
   background-color: rgb(0, 0, 0);
-  height: 400px;
+  max-height: 400px;
   width: 350px;
   border-radius: 10px;
-  border: 2px solid rgb(30 41 59);
 }
 
-.blog-img-container {
+.blog-info-container {
   width: 100%;
-  height: 200px;
+  height: 100%;
   background-color: rgb(224 242 254);
   background-color: rgb(30 41 59);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  padding: 1rem 1.75rem;
+  border-radius: 10px;
 }
 
 .blog-info-container > a {
