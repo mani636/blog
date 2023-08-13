@@ -7,6 +7,17 @@
 }
 
 body {
-  background-color: rgba(2, 6, 23, 1);
   font-family: 'Montserrat', sans-serif;
+}
+
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(2, 6, 23, 1);
+}
+
+.light-theme {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(210, 217, 247);
 }

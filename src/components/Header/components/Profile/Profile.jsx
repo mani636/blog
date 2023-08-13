@@ -1,9 +1,9 @@
 import './Profile.css';
 import image from '../../../../asset/WhatsApp Image 2023-08-09 at 7.14.23 PM.jpeg';
 // import { FaSearch } from 'react-icons/fa';
-import { FiMoon } from 'react-icons/fi';
+import { FiMoon, FiSun } from 'react-icons/fi';
 
-const Profile = () => {
+const Profile = ({ isLightTheme, setIsLightTheme }) => {
   return (
     <div className='container'>
       <div className='profile-container'>
@@ -18,8 +18,8 @@ const Profile = () => {
           <FaSearch />
         </button>
       </div> */}
-      <div className='moon-icon'>
-        <FiMoon />
+      <div className='moon-icon' onClick={() => setIsLightTheme(!isLightTheme)}>
+        {isLightTheme ? <FiSun /> : <FiMoon />}
       </div>
     </div>
   );
