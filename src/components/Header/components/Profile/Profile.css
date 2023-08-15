@@ -22,7 +22,13 @@
   border-radius: 50%;
 }
 
-.profile-container > h3 {
+.name-light {
+  font-weight: 700;
+  font-size: 18px;
+  color: #0d0e0e;
+}
+
+.name-dark {
   font-weight: 700;
   font-size: 18px;
   color: #dbe4e8;
@@ -62,5 +68,12 @@
   background: transparent;
   font-size: 1.5rem;
   color: #dbe4e8;
+  margin-right: 1rem;
+}
+
+.sun-icon {
+  background: transparent;
+  font-size: 1.5rem;
+  color: #0b0c0c;
   margin-right: 1rem;
 }

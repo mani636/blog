@@ -3,10 +3,12 @@ import './Profile.css';
 import profile from '../../../../asset/WhatsApp Image 2023-08-09 at 7.14.23 PM.jpeg';
 import { FiUserPlus } from 'react-icons/fi';
 import { socialLinks } from '../../../../constants/data';
-
+import { useThemeContext } from '../../../../context/theme';
 const Profile = () => {
+  const { isLightTheme } = useThemeContext();
+
   return (
-    <div className='user-container'>
+    <div className={isLightTheme ? 'light-user-container' : 'user-container'}>
       <div className='user-image-container'>
         <img src={profile} alt='profile' />
       </div>
@@ -16,9 +18,17 @@ const Profile = () => {
         <span className='user-icon'>
           <FiUserPlus />
         </span>
-        <button className='user-follow-btn'>Follow</button>
+        <button
+          className={isLightTheme ? 'light-follow-btn' : 'user-follow-btn'}
+        >
+          Follow
+        </button>
       </div>
-      <div className='user-social-links'>
+      <div
+        className={
+          isLightTheme ? 'light-user-social-links' : 'user-social-links'
+        }
+      >
         {socialLinks.map(({ id, link, url }) => (
           <a href={url} key={id} target='_blank' rel='noopener noreferrer'>
             {link}

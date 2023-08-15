@@ -27,3 +27,14 @@
 .nav-link > a:focus {
   border-bottom: 4px solid gray;
 }
+
+.light-nav-link > a {
+  text-decoration: none;
+  color: #040404;
+}
+
+.light-nav-link {
+  margin: 1rem;
+  list-style: none;
+  font-weight: 700;
+}

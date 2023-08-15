@@ -1,8 +1,15 @@
+.signup {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .signup-container {
   width: 500px;
   height: 400px;
   background-color: rgba(15, 23, 42, 1);
-  margin: 4rem auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;

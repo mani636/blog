@@ -31,42 +31,44 @@ const SignUp = () => {
   };
 
   return (
-    <div className='signup-container'>
-      <h1 className='heading'>Sign Up</h1>
-      <div className='email-container'>
-        <input
-          type='email'
-          placeholder='Email'
-          className='email'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+    <div className='signup'>
+      <div className='signup-container'>
+        <h1 className='heading'>Sign Up</h1>
+        <div className='email-container'>
+          <input
+            type='email'
+            placeholder='Email'
+            className='email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className='password-container'>
+          <input
+            type='password'
+            placeholder='Password'
+            className='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div className='signup-btn'>
+          <button type='button' onClick={onSubmit}>
+            SIGN UP
+          </button>
+        </div>
+        <h3>or</h3>
+        <div className='signIn-google-btn'>
+          <button type='button' onClick={() => {}}>
+            SIGN IN WITH GOOGLE
+          </button>
+        </div>
+        <p>
+          Already have an account? <NavLink to='/login'> sign in</NavLink>
+        </p>
       </div>
-      <div className='password-container'>
-        <input
-          type='password'
-          placeholder='Password'
-          className='password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-      <div className='signup-btn'>
-        <button type='button' onClick={onSubmit}>
-          SIGN UP
-        </button>
-      </div>
-      <h3>or</h3>
-      <div className='signIn-google-btn'>
-        <button type='button' onClick={() => {}}>
-          SIGN IN WITH GOOGLE
-        </button>
-      </div>
-      <p>
-        Already have an account? <NavLink to='/login'> sign in</NavLink>
-      </p>
     </div>
   );
 };

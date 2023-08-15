@@ -1,4 +1,4 @@
-nav {
+.nav {
   width: 90vw;
   height: 200px;
   margin: 0 auto;
@@ -10,8 +10,24 @@ nav {
   color: #fff;
 }
 
+.nav-light-theme {
+  background-color: rgb(224 242 254);
+  width: 90vw;
+  height: 200px;
+  margin: 0 auto;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0px 0px 8px 1px rgb(63, 82, 110);
+  box-shadow: 0px 0px 8px 1px rgb(93, 113, 118);
+  color: #090909;
+}
+
 @media (max-width: 798px) {
-  nav {
+  .nav {
+    width: 100vw;
+  }
+
+  .nav-light-theme {
     width: 100vw;
   }
 }

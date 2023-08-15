@@ -66,3 +66,28 @@
   text-align: center;
   cursor: pointer;
 }
+
+/* light theme css */
+
+.light-user-container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  background-color: rgb(224 242 254);
+  gap: 1rem;
+  padding: 1rem;
+  color: black;
+  font-weight: 700;
+}
+
+.light-user-social-links > a {
+  margin: 1rem;
+  color: black;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+}
