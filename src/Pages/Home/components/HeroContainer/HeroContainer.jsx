@@ -5,6 +5,8 @@ import { collection, deleteDoc, doc, getDocs, query } from 'firebase/firestore';
 import { db } from '../../../../firebase';
 import { useEffect, useState } from 'react';
 import { useThemeContext } from '../../../../context/theme';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const HeroContainer = () => {
   const { isLightTheme } = useThemeContext();
@@ -15,7 +17,7 @@ const HeroContainer = () => {
     const querySnapshot = await getDocs(q);
     let posts = [];
     querySnapshot.forEach((doc) => {
-      posts.push({ ...doc.data(), id: doc._id });
+      posts.push({ ...doc.data(), id: doc.id });
     });
     setPost(posts);
   };
@@ -24,10 +26,15 @@ const HeroContainer = () => {
     getPosts();
   }, []);
 
-  // const deletePost = async (id) => {
-  //   await deleteDoc(doc(db, 'posts', id));
-  //   getPosts();
-  // };
+  const deletePost = async (id) => {
+    try {
+      await deleteDoc(doc(db, 'posts', id));
+      getPosts();
+      toast.success('Your post successfully deleted');
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
 
   return (
     <div className='blog'>
@@ -51,9 +58,9 @@ const HeroContainer = () => {
             </Link>
           </div>
           <div className='delete-post'>
-            {/* <button type='button' onClick={deletePost(post.id)}>
+            <button type='button' onClick={() => deletePost(post.id)}>
               delete
-            </button> */}
+            </button>
           </div>
         </div>
       ))}

@@ -22,7 +22,11 @@ const SignUp = () => {
         navigate('/login');
       })
       .catch((err) => {
-        console.log('An error occured', err.message);
+        if ((err.code = 'auth/email-already-in-use')) {
+          alert('this email already exits');
+        } else {
+          console.log('An error occured', err.message);
+        }
       });
   };
 

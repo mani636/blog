@@ -4,6 +4,8 @@ import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import { useThemeContext } from '../../context/theme';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Create = () => {
   const { isLightTheme } = useThemeContext();
@@ -20,6 +22,7 @@ const Create = () => {
     setTitle('');
     setPostText('');
     navigate('/');
+    toast.success('Your post successfully created');
   };
 
   return (

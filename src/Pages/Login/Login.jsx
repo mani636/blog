@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { auth } from '../../firebase';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useThemeContext } from '../../context/theme';
 
 const Login = () => {
+  const { setIsLogin } = useThemeContext();
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -15,6 +17,7 @@ const Login = () => {
         const user = userCredential.user;
         setEmail('');
         setPassword('');
+        setIsLogin(true);
         navigate('/');
       })
       .catch((err) => {

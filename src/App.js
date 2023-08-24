@@ -5,18 +5,16 @@ import { Home, Create, Login, SignUp } from './Pages';
 import { useThemeContext } from './context/theme';
 
 const App = () => {
-  const { isLightTheme } = useThemeContext();
+  const { isLightTheme, isLogin } = useThemeContext();
 
   return (
     <main className={isLightTheme ? 'light-theme' : 'main-container'}>
-      <SignUp />
-      {/* <Header /> */}
-      {/* <Routes>
-        <Route path='/' element={<Home />} />
+      <Routes>
+        <Route path='/' element={isLogin ? <Home /> : <SignUp />} />
         <Route path='/create' element={<Create />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
-      </Routes> */}
+      </Routes>
     </main>
   );
 };
