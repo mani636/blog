@@ -1,9 +1,21 @@
 .hero-container {
   color: #fff;
-  width: 100vw;
+  height: max-content;
+  background-color: rgba(2, 6, 23, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 2rem auto 0 auto;
+  gap: 1.5rem;
+}
+
+.hero-light-theme-container {
+  color: black;
+  height: max-content;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
 }

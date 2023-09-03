@@ -30,8 +30,10 @@ const SignUp = () => {
       });
   };
 
-  const signInWithGoogle = () => {
-    signInWithPopup(auth, provider).then((result) => {});
+  const signInWithGoogle = async () => {
+    await signInWithPopup(auth, provider).then((result) => {
+      navigate('/');
+    });
   };
 
   return (
@@ -63,9 +65,9 @@ const SignUp = () => {
             SIGN UP
           </button>
         </div>
-        <h3>or</h3>
+        <h3 className='and'>or</h3>
         <div className='signIn-google-btn'>
-          <button type='button' onClick={() => {}}>
+          <button type='button' onClick={signInWithGoogle}>
             SIGN IN WITH GOOGLE
           </button>
         </div>

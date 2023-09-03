@@ -17,12 +17,6 @@ const Profile = () => {
           Manikandan Blog
         </h3>
       </div>
-      {/* <div className='search-container'>
-        <input type='text' className='search-box' placeholder='Search Blogs' />
-        <button className='search-btn'>
-          <FaSearch />
-        </button>
-      </div> */}
       <div
         className={isLightTheme ? 'sun-icon' : 'moon-icon'}
         onClick={() => setIsLightTheme(!isLightTheme)}

@@ -42,33 +42,12 @@
   background: rgb(63, 82, 110);
 }
 
-.search-box {
-  width: 90%;
-  border-radius: 15px;
-  padding: 0.25rem 1rem;
-  background: rgb(66, 82, 107);
-  border: 0;
-  outline: 0;
-  color: #dbe4e8;
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.search-btn {
-  height: 100%;
-  font-size: 1rem;
-  background-color: rgb(66, 82, 107);
-  outline: 0;
-  border: 0;
-  color: #dbe4e8;
-  border-radius: 15px;
-}
-
 .moon-icon {
   background: transparent;
   font-size: 1.5rem;
   color: #dbe4e8;
   margin-right: 1rem;
+  cursor: pointer;
 }
 
 .sun-icon {
@@ -76,4 +55,5 @@
   font-size: 1.5rem;
   color: #0b0c0c;
   margin-right: 1rem;
+  cursor: pointer;
 }

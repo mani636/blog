@@ -56,11 +56,16 @@ const HeroContainer = () => {
                 {post.postText}
               </p>
             </Link>
-          </div>
-          <div className='delete-post'>
-            <button type='button' onClick={() => deletePost(post.id)}>
-              delete
-            </button>
+            <div className='update-and-delete-container'>
+              <div className='update-post'>
+                <button type='button'>Edit</button>
+              </div>
+              <div className='delete-post'>
+                <button type='button' onClick={() => deletePost(post.id)}>
+                  delete
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       ))}

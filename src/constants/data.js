@@ -8,13 +8,8 @@ export const navLinks = [
   },
   {
     id: 2,
-    link: 'Create',
+    link: 'Create Post',
     url: '/create',
-  },
-  {
-    id: 3,
-    link: 'Login',
-    url: '/signup',
   },
 ];
 
