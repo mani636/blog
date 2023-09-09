@@ -32,7 +32,9 @@ const SignUp = () => {
 
   const signInWithGoogle = async () => {
     await signInWithPopup(auth, provider).then((result) => {
+      const user = result.user;
       navigate('/');
+      localStorage.setItem('user', JSON.stringify(user.providerData[0]));
     });
   };
 

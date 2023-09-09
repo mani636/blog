@@ -1,6 +1,6 @@
 import './HeroContainer.css';
 import { data } from '../../../../constants/data';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { collection, deleteDoc, doc, getDocs, query } from 'firebase/firestore';
 import { db } from '../../../../firebase';
 import { useEffect, useState } from 'react';
@@ -9,8 +9,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const HeroContainer = () => {
-  const { isLightTheme } = useThemeContext();
+  const { isLightTheme, setEditPost } = useThemeContext();
   const [post, setPost] = useState([]);
+  const navigate = useNavigate();
 
   const getPosts = async () => {
     const q = query(collection(db, 'posts'));
@@ -25,6 +26,11 @@ const HeroContainer = () => {
   useEffect(() => {
     getPosts();
   }, []);
+
+  const handleEdit = (post) => {
+    setEditPost(post);
+    navigate('/edit');
+  };
 
   const deletePost = async (id) => {
     try {
@@ -48,17 +54,18 @@ const HeroContainer = () => {
               isLightTheme ? 'light-blog-info-container' : 'blog-info-container'
             }
           >
-            <Link>
-              <h1 className={isLightTheme ? 'light-blog-title' : 'blog-title'}>
-                {post.title}
-              </h1>
-              <p className={isLightTheme ? 'light-blog-desc' : 'blog-desc'}>
-                {post.postText}
-              </p>
-            </Link>
+            <h1 className={isLightTheme ? 'light-blog-title' : 'blog-title'}>
+              {post.title}
+            </h1>
+            <p className={isLightTheme ? 'light-blog-desc' : 'blog-desc'}>
+              {post.postText}
+            </p>
+
             <div className='update-and-delete-container'>
               <div className='update-post'>
-                <button type='button'>Edit</button>
+                <button type='button' onClick={() => handleEdit(post)}>
+                  Edit
+                </button>
               </div>
               <div className='delete-post'>
                 <button type='button' onClick={() => deletePost(post.id)}>

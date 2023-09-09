@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import './Create.css';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, updateDoc, doc } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import { useThemeContext } from '../../context/theme';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Create = () => {
   const { isLightTheme } = useThemeContext();
-  const [title, setTitle] = useState('');
-  const [postText, setPostText] = useState('');
+  const [title, setTitle] = useState();
+  const [postText, setPostText] = useState();
 
   const navigate = useNavigate();
 
@@ -50,6 +50,8 @@ const Create = () => {
       <div className={isLightTheme ? 'light-content' : 'content'}>
         <textarea
           type='text'
+          cols='30'
+          rows='10'
           placeholder='Post...'
           className={isLightTheme ? 'light-blog-content' : 'blog-content'}
           value={postText}

@@ -20,6 +20,9 @@ const Login = () => {
         setPassword('');
         setIsLogin(true);
         navigate('/');
+
+        localStorage.setItem('user', JSON.stringify(user.providerData[0]));
+        localStorage.setItem('isLogin', JSON.stringify(true));
       })
       .catch((err) => {
         console.log('An error occured', err.message);

@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { Home, Create, Login, SignUp } from './Pages';
+import { Home, Create, Login, SignUp, Edit } from './Pages';
 import { useThemeContext } from './context/theme';
 import Header from './components/Header/Header';
 
@@ -12,6 +12,7 @@ const App = () => {
         <Route path='/' element={isLogin ? <Header /> : <SignUp />}>
           <Route index={true} element={<Home />} />
           <Route path='/create' element={<Create />} />
+          <Route path='/edit' element={<Edit />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
