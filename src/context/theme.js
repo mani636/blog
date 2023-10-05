@@ -9,6 +9,7 @@ const ThemeProvider = ({ children }) => {
   const [userList, setUserList] = useState();
   const [loginUserEmail, setLoginUserEmail] = useState();
   const [searchTerm, setSearchTerm] = useState('');
+  const [isShowFollow, setIsShowFollow] = useState(false);
 
   const fetchLoginInfo = () => {
     const loginInfo =
@@ -39,6 +40,8 @@ const ThemeProvider = ({ children }) => {
         setLoginUserEmail,
         searchTerm,
         setSearchTerm,
+        isShowFollow,
+        setIsShowFollow,
       }}
     >
       {children}

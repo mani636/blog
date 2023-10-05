@@ -14,6 +14,7 @@ import Header from './components/Header/Header';
 import { collection, getDocs, query } from 'firebase/firestore';
 import { db } from './firebase';
 import { useEffect } from 'react';
+import FollowContainer from './Pages/FollowContainer/FollowContainer';
 
 const App = () => {
   const { isLightTheme, isLogin, setUserList } = useThemeContext();
@@ -46,6 +47,7 @@ const App = () => {
           <Route path='/singlePost' element={<SinglePost />} />
         </Route>
         <Route path='/login' element={<Login />} />
+        <Route path='/follow' element={<FollowContainer />} />
         <Route path='/signup' element={<SignUp />} />
       </Routes>
     </main>

@@ -4,8 +4,15 @@ import profile from '../../../../asset/WhatsApp Image 2023-08-09 at 7.14.23 PM.j
 import { FiUserPlus } from 'react-icons/fi';
 import { socialLinks } from '../../../../constants/data';
 import { useThemeContext } from '../../../../context/theme';
+import { useNavigate } from 'react-router-dom';
 const Profile = () => {
-  const { isLightTheme } = useThemeContext();
+  const navigate = useNavigate();
+  const { isLightTheme, setIsShowFollow } = useThemeContext();
+
+  const clickHandler = () => {
+    setIsShowFollow(true);
+    navigate('/follow');
+  };
 
   return (
     <div className={isLightTheme ? 'light-user-container' : 'user-container'}>
@@ -20,6 +27,7 @@ const Profile = () => {
         </span>
         <button
           className={isLightTheme ? 'light-follow-btn' : 'user-follow-btn'}
+          onClick={clickHandler}
         >
           Follow
         </button>
