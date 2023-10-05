@@ -4,9 +4,11 @@ const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
   const [isLightTheme, setIsLightTheme] = useState(false);
-  const [isLogin, setIsLogin] = useState(null);
-
+  const [isLogin, setIsLogin] = useState(false);
   const [editPost, setEditPost] = useState();
+  const [userList, setUserList] = useState();
+  const [loginUserEmail, setLoginUserEmail] = useState();
+  const [searchTerm, setSearchTerm] = useState('');
 
   const fetchLoginInfo = () => {
     const loginInfo =
@@ -22,8 +24,6 @@ const ThemeProvider = ({ children }) => {
     setIsLogin(user);
   }, []);
 
-  console.log(isLogin);
-
   return (
     <ThemeContext.Provider
       value={{
@@ -33,6 +33,12 @@ const ThemeProvider = ({ children }) => {
         setIsLogin,
         editPost,
         setEditPost,
+        userList,
+        setUserList,
+        loginUserEmail,
+        setLoginUserEmail,
+        searchTerm,
+        setSearchTerm,
       }}
     >
       {children}

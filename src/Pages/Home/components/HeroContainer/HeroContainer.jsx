@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const HeroContainer = () => {
-  const { isLightTheme, setEditPost } = useThemeContext();
+  const { isLightTheme, setEditPost, searchTerm } = useThemeContext();
   const [post, setPost] = useState([]);
   const navigate = useNavigate();
 
@@ -44,38 +44,50 @@ const HeroContainer = () => {
 
   return (
     <div className='blog'>
-      {post.map((post) => (
-        <div
-          className={isLightTheme ? 'light-cart-container' : 'cart-container'}
-          key={post.id}
-        >
+      {post
+        .filter((post) => {
+          if (searchTerm == '') {
+            return post;
+          } else if (
+            post.title.toLowerCase().includes(searchTerm.toLowerCase())
+          ) {
+            return post;
+          }
+        })
+        .map((post) => (
           <div
-            className={
-              isLightTheme ? 'light-blog-info-container' : 'blog-info-container'
-            }
+            className={isLightTheme ? 'light-cart-container' : 'cart-container'}
+            key={post.id}
           >
-            <h1 className={isLightTheme ? 'light-blog-title' : 'blog-title'}>
-              {post.title}
-            </h1>
-            <p className={isLightTheme ? 'light-blog-desc' : 'blog-desc'}>
-              {post.postText}
-            </p>
+            <div
+              className={
+                isLightTheme
+                  ? 'light-blog-info-container'
+                  : 'blog-info-container'
+              }
+            >
+              <h1 className={isLightTheme ? 'light-blog-title' : 'blog-title'}>
+                {post.title}
+              </h1>
+              <p className={isLightTheme ? 'light-blog-desc' : 'blog-desc'}>
+                {post.postText}
+              </p>
 
-            <div className='update-and-delete-container'>
-              <div className='update-post'>
-                <button type='button' onClick={() => handleEdit(post)}>
-                  Edit
-                </button>
-              </div>
-              <div className='delete-post'>
-                <button type='button' onClick={() => deletePost(post.id)}>
-                  delete
-                </button>
+              <div className='update-and-delete-container'>
+                <div className='update-post'>
+                  <button type='button' onClick={() => handleEdit(post)}>
+                    Edit
+                  </button>
+                </div>
+                <div className='delete-post'>
+                  <button type='button' onClick={() => deletePost(post.id)}>
+                    delete
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
     </div>
   );
 };

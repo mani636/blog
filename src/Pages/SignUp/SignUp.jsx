@@ -2,11 +2,17 @@ import React from 'react';
 import './SignUp.css';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
-import { auth, provider } from '../../firebase';
+import { auth, db, provider } from '../../firebase';
 import { signInWithPopup } from 'firebase/auth';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { addDoc, collection } from 'firebase/firestore';
+import { useUserContext } from '../../context/userContext';
+import { useThemeContext } from '../../context/theme';
 
 const SignUp = () => {
+  const { setLoginUser } = useUserContext();
+  const { setIsLogin } = useThemeContext();
+
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,6 +23,17 @@ const SignUp = () => {
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+
+        const collectionRef = collection(db, 'users');
+
+        addDoc(collectionRef, {
+          id: user.uid,
+          userName: 'null',
+          userImage: 'null',
+          userEmail: user.email,
+          userPhoneNo: 'null',
+        });
+
         setEmail('');
         setPassword('');
         navigate('/login');
@@ -33,7 +50,11 @@ const SignUp = () => {
   const signInWithGoogle = async () => {
     await signInWithPopup(auth, provider).then((result) => {
       const user = result.user;
+
+      setLoginUser(user.email);
+      setIsLogin(true);
       navigate('/');
+
       localStorage.setItem('user', JSON.stringify(user.providerData[0]));
     });
   };

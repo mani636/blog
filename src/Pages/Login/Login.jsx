@@ -4,9 +4,12 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useThemeContext } from '../../context/theme';
 import './Login.css';
+import { useUserContext } from '../../context/userContext';
 
 const Login = () => {
-  const { setIsLogin } = useThemeContext();
+  const { setIsLogin, setLoginUserEmail } = useThemeContext();
+  const { setLoginUser } = useUserContext();
+
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,6 +19,9 @@ const Login = () => {
     await signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+
+        setLoginUserEmail(user.email);
+        setLoginUser(user.email);
         setEmail('');
         setPassword('');
         setIsLogin(true);
@@ -29,25 +35,30 @@ const Login = () => {
       });
   };
 
+  const clickHandler = () => {
+    setEmail('test@gmail.com');
+    setPassword('test@123');
+  };
+
   return (
     <div className='login'>
       <div className='login-container'>
         <h1 className='heading'>Login</h1>
-        <div className='email-container'>
+        <div className='login-email-container'>
           <input
             type='email'
             placeholder='Email'
-            className='email'
+            className='login-email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
-        <div className='password-container'>
+        <div className='login-password-container'>
           <input
             type='password'
             placeholder='Password'
-            className='password'
+            className='login-password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -58,9 +69,16 @@ const Login = () => {
             login
           </button>
         </div>
-        {/* <p>
-    Already have an account?<NavLink to='/login'>sign in</NavLink>
-  </p> */}
+
+        <div className='signup-btn'>
+          <button type='button' onClick={clickHandler}>
+            Test Credential
+          </button>
+
+          <p>
+            Don't have an account? <NavLink to='/'> sign in</NavLink>
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,47 @@
+.post-container {
+  width: 90%;
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 auto;
+}
+
+.post-card {
+  width: 330px;
+  height: 450px;
+  background-color: rgb(66, 146, 216);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.post-img-container {
+  height: 100px;
+  width: 100%;
+  background-color: aliceblue;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.post-img-container img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.title {
+  flex: 1.5;
+}
+
+.desc {
+  flex: 1.5;
+  background-color: wheat;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}

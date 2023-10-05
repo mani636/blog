@@ -11,6 +11,16 @@ export const navLinks = [
     link: 'Create Post',
     url: '/create',
   },
+  {
+    id: 3,
+    link: 'Profile',
+    url: '/profile',
+  },
+  {
+    id: 4,
+    link: 'Logout',
+    url: '/logout',
+  },
 ];
 
 export const socialLinks = [
