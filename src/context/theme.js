@@ -10,6 +10,7 @@ const ThemeProvider = ({ children }) => {
   const [loginUserEmail, setLoginUserEmail] = useState();
   const [searchTerm, setSearchTerm] = useState('');
   const [isShowFollow, setIsShowFollow] = useState(false);
+  const [showDialog, setShowDialog] = useState(false);
 
   const fetchLoginInfo = () => {
     const loginInfo =
@@ -42,6 +43,8 @@ const ThemeProvider = ({ children }) => {
         setSearchTerm,
         isShowFollow,
         setIsShowFollow,
+        showDialog,
+        setShowDialog,
       }}
     >
       {children}

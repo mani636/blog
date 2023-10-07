@@ -4,6 +4,7 @@ import Footer from '../../components/Footer/Footer';
 import { useThemeContext } from '../../context/theme';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ConfirmDialog from './components/ConfirmDialog/ConfirmDialog';
 
 const Home = () => {
   const { isLightTheme } = useThemeContext();

@@ -7,10 +7,14 @@ import { useEffect, useState } from 'react';
 import { useThemeContext } from '../../../../context/theme';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ConfirmDialog from '../ConfirmDialog/ConfirmDialog';
 
 const HeroContainer = () => {
-  const { isLightTheme, setEditPost, searchTerm } = useThemeContext();
+  const { isLightTheme, setEditPost, searchTerm, setShowDialog, showDialog } =
+    useThemeContext();
   const [post, setPost] = useState([]);
+  const [deleteId, setDeleteId] = useState('');
+
   const navigate = useNavigate();
 
   const getPosts = async () => {
@@ -30,6 +34,11 @@ const HeroContainer = () => {
   const handleEdit = (post) => {
     setEditPost(post);
     navigate('/edit');
+  };
+
+  const handleDelete = (id) => {
+    setDeleteId(id);
+    setShowDialog(true);
   };
 
   const deletePost = async (id) => {
@@ -80,7 +89,7 @@ const HeroContainer = () => {
                   </button>
                 </div>
                 <div className='delete-post'>
-                  <button type='button' onClick={() => deletePost(post.id)}>
+                  <button type='button' onClick={() => handleDelete(post.id)}>
                     delete
                   </button>
                 </div>
@@ -88,6 +97,9 @@ const HeroContainer = () => {
             </div>
           </div>
         ))}
+      {showDialog && (
+        <ConfirmDialog onDelete={deletePost} deleteId={deleteId} />
+      )}
     </div>
   );
 };
