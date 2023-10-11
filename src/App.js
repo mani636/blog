@@ -42,13 +42,14 @@ const App = () => {
           <Route index={true} element={<Home />} />
           <Route path='/create' element={<Create />} />
           <Route path='/edit' element={<Edit />} />
-          <Route path='/profile' element={<Profile />} />
+
           <Route path='/logout' element={<Logout />} />
           <Route path='/singlePost' element={<SinglePost />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/follow' element={<FollowContainer />} />
         <Route path='/signup' element={<SignUp />} />
+        <Route path='/profile' element={<Profile />} />
       </Routes>
     </main>
   );

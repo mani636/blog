@@ -7,7 +7,7 @@ import './Login.css';
 import { useUserContext } from '../../context/userContext';
 
 const Login = () => {
-  const { setIsLogin, setLoginUserEmail } = useThemeContext();
+  const { setIsLogin } = useThemeContext();
   const { setLoginUser } = useUserContext();
 
   const navigate = useNavigate();
@@ -20,8 +20,7 @@ const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
 
-        setLoginUserEmail(user.email);
-        setLoginUser(user.email);
+        setLoginUser(user.uid);
         setEmail('');
         setPassword('');
         setIsLogin(true);

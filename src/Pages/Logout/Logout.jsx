@@ -1,8 +1,14 @@
 import './Logout.css';
+import { useEffect } from 'react';
 import { useThemeContext } from '../../context/theme';
+import { useUserContext } from '../../context/userContext';
+import { useNavigate } from 'react-router-dom';
 
 const Logout = () => {
   const { setIsLogin } = useThemeContext();
+
+  const navigate = useNavigate();
+
   const clickHandler = () => {
     localStorage.clear();
     setIsLogin(false);
@@ -10,19 +16,15 @@ const Logout = () => {
 
   return (
     <div className='logout-card'>
-      <h1>Profile</h1>
-      <div className='logout-details-box'>
-        <p>Full Name:</p>
-        <p> test</p>
-      </div>
-
-      <div className='logout-details-box'>
-        <p>Email:</p>
-        <p> test@gmail.com</p>
-      </div>
+      <h1>Please Confirm</h1>
+      <h3>Are you sure you want to Logout?</h3>
 
       <button type='button' onClick={clickHandler}>
         Logout
+      </button>
+
+      <button className='cancel-btn' onClick={() => navigate('/')}>
+        Cancel
       </button>
     </div>
   );

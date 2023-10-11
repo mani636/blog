@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { auth, db, provider } from '../../firebase';
 import { signInWithPopup } from 'firebase/auth';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { addDoc, collection } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 import { useUserContext } from '../../context/userContext';
 import { useThemeContext } from '../../context/theme';
 
@@ -24,14 +24,17 @@ const SignUp = () => {
       .then((userCredential) => {
         const user = userCredential.user;
 
-        const collectionRef = collection(db, 'users');
+        const collectionRef = doc(db, 'users', user.uid);
 
-        addDoc(collectionRef, {
+        setDoc(collectionRef, {
           id: user.uid,
-          userName: 'null',
-          userImage: 'null',
-          userEmail: user.email,
-          userPhoneNo: 'null',
+          firstName: 'NULL',
+          lastName: 'NULL',
+          image: 'NULL',
+          email: user.email,
+          gender: 'NULL',
+          age: 'NULL',
+          phoneNo: 'NULL',
         });
 
         setEmail('');
@@ -51,7 +54,20 @@ const SignUp = () => {
     await signInWithPopup(auth, provider).then((result) => {
       const user = result.user;
 
-      setLoginUser(user.email);
+      const collectionRef = doc(db, 'users', user.uid);
+
+      setDoc(collectionRef, {
+        id: user.uid,
+        firstName: 'NULL',
+        lastName: 'NULL',
+        image: 'NULL',
+        email: user.email,
+        gender: 'NULL',
+        age: 'NULL',
+        phoneNo: 'NULL',
+      });
+
+      setLoginUser(user.uid);
       setIsLogin(true);
       navigate('/');
 

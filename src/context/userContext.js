@@ -1,7 +1,5 @@
 import { useContext, createContext, useState, useEffect } from 'react';
 import { getUserData } from '../utils/firebaseFunctions';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../firebase';
 
 export const UserContext = createContext();
 
@@ -22,7 +20,7 @@ export const UserProvider = ({ children }) => {
 
   const userProfile = () => {
     const filterUser =
-      users.length && users.find((user) => user.userEmail === loginUser);
+      users.length && users.find((user) => user.id === loginUser);
 
     setData(filterUser);
   };
