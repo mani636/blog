@@ -20,8 +20,6 @@ const Profile = () => {
   const [user, setUser] = useState(data);
 
   const clickHandler = async () => {
-    setData(user);
-
     try {
       const snap = await getDoc(doc(db, 'users', user.id));
 
@@ -54,16 +52,16 @@ const Profile = () => {
       );
       const uploadTask = await uploadBytesResumable(storageRef, imageFile);
 
-      getDownloadURL(storageRef).then((downloadURL) => {
-        setUser({ ...user, image: downloadURL });
+      console.log(`Profile--57`, storageRef);
+
+      getDownloadURL(storageRef).then((downloadUrl) => {
+        setUser({ ...user, image: downloadUrl });
         toast.success('Image Uploaded Successfully!');
       });
     } catch (err) {
       console.log(`Error Occured while uploading profile image`, err.message);
     }
   };
-
-  console.log('profile--66', user);
 
   return (
     <div className='main-profile-container'>
