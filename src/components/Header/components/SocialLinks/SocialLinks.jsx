@@ -15,14 +15,11 @@ const SocialLinks = () => {
 
   return (
     <div className='social-link-container'>
-      <div className='follow-btn-container'>
+      <div className='follow-btn-container' onClick={clickHandler}>
         <span className='user-icon'>
           <FiUserPlus />
         </span>
-        <button
-          className={isLightTheme ? 'light-follow-btn' : 'follow-btn'}
-          onClick={clickHandler}
-        >
+        <button className={isLightTheme ? 'light-follow-btn' : 'follow-btn'}>
           Follow
         </button>
       </div>
