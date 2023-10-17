@@ -1,18 +1,19 @@
 import React from 'react';
 import './SinglePost.css';
-import birds from '../../asset/download (1).jpg';
+import { useThemeContext } from '../../context/theme';
 
 const SinglePost = () => {
+  const { singleBlog } = useThemeContext();
+
   return (
     <div className='post-container'>
-      <div className='post-card'>
-        <div className='post-img-container'>
-          <img src={birds} alt='birds' />
-        </div>
+      <div className='single-post-img-container'>
+        <img src={singleBlog.image} alt={singleBlog.title} />
+      </div>
 
-        <div className='title'></div>
-
-        <div className='desc'></div>
+      <div className='single-post-body-container'>
+        <h1>{singleBlog.title}</h1>
+        <p>{singleBlog.postText}</p>
       </div>
     </div>
   );

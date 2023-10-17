@@ -10,8 +10,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import ConfirmDialog from '../ConfirmDialog/ConfirmDialog';
 
 const HeroContainer = () => {
-  const { isLightTheme, setEditPost, searchTerm, setShowDialog, showDialog } =
-    useThemeContext();
+  const {
+    isLightTheme,
+    setEditPost,
+    searchTerm,
+    setShowDialog,
+    showDialog,
+    setSingleBlog,
+  } = useThemeContext();
   const [post, setPost] = useState([]);
   const [deleteId, setDeleteId] = useState('');
 
@@ -51,6 +57,10 @@ const HeroContainer = () => {
     }
   };
 
+  const handlePost = (post) => {
+    setSingleBlog(post);
+  };
+
   return (
     <div className='blog'>
       {post
@@ -71,29 +81,36 @@ const HeroContainer = () => {
             <div
               className={
                 isLightTheme
-                  ? 'light-blog-info-container'
-                  : 'blog-info-container'
+                  ? 'light-blog-image-container'
+                  : 'blog-image-container'
               }
             >
-              <h1 className={isLightTheme ? 'light-blog-title' : 'blog-title'}>
-                {post.title}
-              </h1>
-              <p className={isLightTheme ? 'light-blog-desc' : 'blog-desc'}>
-                {post.postText}
-              </p>
+              <img src={post.image} alt={post.title} />
+            </div>
 
-              <div className='update-and-delete-container'>
-                <div className='update-post'>
-                  <button type='button' onClick={() => handleEdit(post)}>
-                    Edit
-                  </button>
-                </div>
-                <div className='delete-post'>
-                  <button type='button' onClick={() => handleDelete(post.id)}>
-                    delete
-                  </button>
-                </div>
-              </div>
+            <div
+              className={
+                isLightTheme
+                  ? 'light-blog-body-container'
+                  : 'blog-body-container'
+              }
+            >
+              <h2>{post.title}</h2>
+              <p>{post.postText}</p>
+              <Link to='singlePost' onClick={() => handlePost(post)}>
+                read more
+              </Link>
+            </div>
+
+            <div
+              className={isLightTheme ? 'light-btn-container' : 'btn-container'}
+            >
+              <button type='button' onClick={() => handleEdit(post)}>
+                Edit
+              </button>
+              <button type='button' onClick={() => handleDelete(post.id)}>
+                Delete
+              </button>
             </div>
           </div>
         ))}

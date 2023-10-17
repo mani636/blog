@@ -52,8 +52,6 @@ const Profile = () => {
       );
       const uploadTask = await uploadBytesResumable(storageRef, imageFile);
 
-      console.log(`Profile--57`, storageRef);
-
       getDownloadURL(storageRef).then((downloadUrl) => {
         setUser({ ...user, image: downloadUrl });
         toast.success('Image Uploaded Successfully!');

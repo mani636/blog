@@ -21,13 +21,12 @@ const Profile = () => {
       </div>
       <p className='name'>Manikandan Raj</p>
       <p>Learning new things everyday</p>
-      <div className='user-follow-btn-container'>
+      <div className='user-follow-btn-container' onClick={clickHandler}>
         <span className='user-icon'>
           <FiUserPlus />
         </span>
         <button
           className={isLightTheme ? 'light-follow-btn' : 'user-follow-btn'}
-          onClick={clickHandler}
         >
           Follow
         </button>

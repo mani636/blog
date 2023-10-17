@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Create.css';
-import { addDoc, collection, updateDoc, doc } from 'firebase/firestore';
+import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import { useThemeContext } from '../../context/theme';
@@ -8,15 +8,15 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Create = () => {
-  const { isLightTheme } = useThemeContext();
-  const [title, setTitle] = useState();
-  const [postText, setPostText] = useState();
+  const { isLightTheme, image, uploadImage } = useThemeContext();
+  const [title, setTitle] = useState('');
+  const [postText, setPostText] = useState('');
 
   const navigate = useNavigate();
 
   const createPost = async (e) => {
     e.preventDefault();
-    const post = { title: title, postText: postText };
+    const post = { title: title, postText: postText, image: image };
 
     await addDoc(collection(db, 'posts'), post);
     setTitle('');
@@ -59,6 +59,17 @@ const Create = () => {
           required
         />
       </div>
+
+      <div className={isLightTheme ? 'light-content' : 'content'}>
+        <input
+          type='file'
+          accept='image/*'
+          className='image-input'
+          onChange={uploadImage}
+          required
+        />
+      </div>
+
       <div className='blog-content-container'>
         <button
           className={isLightTheme ? 'light-create-btn' : 'create-btn'}

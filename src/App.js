@@ -44,10 +44,10 @@ const App = () => {
           <Route path='/edit' element={<Edit />} />
 
           <Route path='/logout' element={<Logout />} />
-          <Route path='/singlePost' element={<SinglePost />} />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/follow' element={<FollowContainer />} />
+        <Route path='/singlePost' element={<SinglePost />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/profile' element={<Profile />} />
       </Routes>

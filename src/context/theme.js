@@ -1,4 +1,7 @@
 import { useState, createContext, useContext, useEffect } from 'react';
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { toast } from 'react-toastify';
+import { storage } from '../firebase';
 
 const ThemeContext = createContext();
 
@@ -11,6 +14,10 @@ const ThemeProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isShowFollow, setIsShowFollow] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
+
+  const [singleBlog, setSingleBlog] = useState('');
+
+  const [image, setImage] = useState('');
 
   const fetchLoginInfo = () => {
     const loginInfo =
@@ -25,6 +32,39 @@ const ThemeProvider = ({ children }) => {
     const user = fetchLoginInfo;
     setIsLogin(user);
   }, []);
+
+  const uploadImage = (event) => {
+    const imageFile = event.target.files[0];
+
+    const storageRef = ref(storage, `Images/${Date.now()}/${imageFile.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, imageFile);
+
+    uploadTask.on(
+      'state_changed',
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        switch (snapshot.state) {
+          case 'paused':
+            toast.info('Upload is Paused!');
+            break;
+          case 'running':
+            toast.warning('Waiting for Image Upload!!');
+            break;
+        }
+      },
+      (error) => {
+        console.log('Error', error);
+        toast.error('Error... Try Again!');
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          setImage(downloadURL);
+          toast.success('Image Uploaded Successfully!');
+        });
+      }
+    );
+  };
 
   return (
     <ThemeContext.Provider
@@ -45,6 +85,11 @@ const ThemeProvider = ({ children }) => {
         setIsShowFollow,
         showDialog,
         setShowDialog,
+        image,
+        setImage,
+        uploadImage,
+        singleBlog,
+        setSingleBlog,
       }}
     >
       {children}
